@@ -1,0 +1,12 @@
+spring:
+  #  autoconfigure:
+  #    exclude:
+  #      - org.springframework.cloud.sleuth.autoconfig.instrument.async.TraceAsyncCustomAutoConfiguration
+  sleuth:
+    otel:
+      config:
+        trace-id-ratio-based: 1.0
+      exporter:
+        otlp:
+          enabled: false
+          endpoint: http://${TRACING_COLLECTOR_HOST:localhost}:${TRACING_COLLECTOR_PORT:4317}
